@@ -11,5 +11,6 @@
   <name>java-tutorials</name>
   <modules>
     <module>java</module>
+    <module>thread</module>
   </modules>
 </project>

@@ -13,5 +13,6 @@
     <module>java</module>
     <module>basic</module>
     <module>thread</module>
+    <module>socket</module>
   </modules>
 </project>

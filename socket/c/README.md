@@ -400,11 +400,11 @@ read(0,
 
 三次握手:
 
-1.Client->tcp_connect_init(sk)->tcp_transmit_skb(sk, buff, 1, sk->sk_allocation);->Server;
+- 1.Client->tcp_connect_init(sk)->tcp_transmit_skb(sk, buff, 1, sk->sk_allocation);->Server;
   tcp_v4_connect()->tcp_connect()->tcp_transmit_skb()
-2.Server->inet_csk_accept(struct sock *sk, int flags, int *err)->tcp_rcv_synsent_state_process->Client;
+- 2.Server->inet_csk_accept(struct sock *sk, int flags, int *err)->tcp_rcv_synsent_state_process->Client;
   tcp_v4_do_rcv()->tcp_rcv_state_process()->tcp_v4_conn_request()->tcp_v4_send_synack().
-3.Client->tcp_rcv_state_process()->Server
+- 3.Client->tcp_rcv_state_process()->Server
   tcp_v4_do_rcv()->tcp_rcv_state_process().当前客户端处于TCP_SYN_SENT状态
 
 

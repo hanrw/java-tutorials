@@ -1,0 +1,2 @@
+org.hanrw.java.pattern.spi.DefaultPaymentProvider
+org.hanrw.java.pattern.spi.NetellerPaymentProvider

@@ -19,4 +19,8 @@ public class PaymentProviders {
     public static PaymentProvider get(String providerName) {
         return providers.stream().filter(p -> p.getName().equals(providerName)).findFirst().orElse(null);
     }
+
+    public static PaymentProvider get() {
+        return providers.stream().filter(p -> "DefaultPaymentProvider".equals(p.getName())).findFirst().orElse(null);
+    }
 }

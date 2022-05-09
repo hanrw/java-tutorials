@@ -8,6 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CampaignStrategyContextTest {
 
+
+    @Test
+    public void should_apply_christmas_discounter_when_switch_to_ChristmasCampaign() {
+        CampaignStrategyContext context = new CampaignStrategyContext();
+        context.setContext(new ChristmasCampaign());
+        assertEquals(BigDecimal.valueOf(90.0), context.applyDiscounter(BigDecimal.valueOf(100)));
+    }
+
     @Test
     public void should_apply_christmas_discounter() {
         BigDecimal afterDiscount = CampaignStrategyContext.applyDiscounter(BigDecimal.valueOf(100), ChristmasCampaign.class);

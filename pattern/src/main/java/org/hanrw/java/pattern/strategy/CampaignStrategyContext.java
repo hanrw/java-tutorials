@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CampaignStrategyContext {
+    private Campaign context;
     private static final Map<Class<? extends Campaign>, Campaign> CAMPAIGNS = Map.of(
             ChristmasCampaign.class, new ChristmasCampaign(),
             EasterCampaign.class, new EasterCampaign()
@@ -21,6 +22,11 @@ public class CampaignStrategyContext {
             amount -> amount.multiply(BigDecimal.valueOf(0.8))
     );
     private static Campaign combinedCampaign = ALL_CAMPAIGNS.stream().reduce(v -> v, Campaign::combine);
+
+
+    public BigDecimal applyDiscounter(BigDecimal price) {
+        return context.apply(price);
+    }
 
     public static BigDecimal applyDiscounter(BigDecimal price, Class<? extends Campaign> campaign) {
         return CAMPAIGNS.get(campaign).apply(price);
@@ -39,5 +45,9 @@ public class CampaignStrategyContext {
 
     public static BigDecimal applyDiscounterWithUnaryOperator(BigDecimal price) {
         return combinedCampaign.apply(price);
+    }
+
+    public void setContext(Campaign context) {
+        this.context = context;
     }
 }

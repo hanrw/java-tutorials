@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class CampaignStrategyFactory {
+public class CampaignStrategyContext {
     private static final Map<Class<? extends Campaign>, Campaign> CAMPAIGNS = Map.of(
             ChristmasCampaign.class, new ChristmasCampaign(),
             EasterCampaign.class, new EasterCampaign()
